@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output GitHub issue
-        run: echp "${{ toJSON(github.event) }}"
+        run: echo "${{ toJSON(github.event) }}"
 
