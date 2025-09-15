@@ -1,0 +1,12 @@
+name: Handle Issues
+on:
+  issues:
+    types:
+      - opened
+jobs:
+  issue_info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output GitHub issue
+        run: echp "${{ toJSON(github.event) }}"
+
