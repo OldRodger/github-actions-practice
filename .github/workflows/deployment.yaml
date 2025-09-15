@@ -1,0 +1,25 @@
+name: Deployment Flow
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v5
+
+      - name: Install dependency
+        run: npm ci
+
+      - name: Run linting
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test
+
+      - name: Run build
+        run: npm run build
+
+      - name: initiate deployment
+        run: echo "Started Deployment..."
+
+
