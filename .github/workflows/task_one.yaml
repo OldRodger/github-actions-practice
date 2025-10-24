@@ -1,0 +1,34 @@
+name: Deployment 🚀
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v5
+      - name: Install Dependencies
+        run: npm ci
+      - name: Linting ✨
+        run: npm run lint
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v5
+      - name: Install Dependencies
+        run: npm ci
+      - name: Testing 🧪
+        run: npm test
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v5
+      - name: Install Dependencies
+        run: npm ci
+      - name: Building 🧱
+        run: npm run build
+      - name: Deploying🚀
+        run: echo "Deploying..."
